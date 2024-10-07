@@ -8,6 +8,7 @@ import com.empty.empty_project.di.IoDispatcher
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ class TViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _items = MutableStateFlow<List<TEntity>>(emptyList())
-    val items = _items.value
+    val items = _items.asStateFlow()
 
     init {
         viewModelScope.launch(ioDispatcher) {

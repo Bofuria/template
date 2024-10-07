@@ -5,5 +5,5 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "ttable")
 data class TEntity(
-    @PrimaryKey private val id: Int,
+    @PrimaryKey val id: Int,
 )
